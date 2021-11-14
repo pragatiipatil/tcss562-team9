@@ -31,6 +31,21 @@ public class HelloPOJO implements RequestHandler<Request, HashMap<String, Object
         //Add custom key/value attribute to SAAF's output. (OPTIONAL)
         inspector.addAttribute("message", "Hello " + request.getName() 
                 + "! This is an attributed added to the Inspector!");
+        String bucketname = request.getBucketname();
+        String filename = request.getFilename();
+        
+        AmazonS3 s3Client = AmazonS3ClientBuilder.standard().build();         
+    //get object file using source bucket and srcKey name
+    S3Object s3Object = s3Client.getObject(new GetObjectRequest(srcBucket, srcKey));
+    //get content of the file
+    InputStream objectData = s3Object.getObjectContent();
+    //scanning data line by line
+    String text = "";
+    Scanner scanner = new Scanner(objectData);
+    while (scanner.hasNext()) {
+    text += scanner.nextLine();
+    }
+scanner.close();
         
         
         //Create and populate a separate response object for function output. (OPTIONAL)
