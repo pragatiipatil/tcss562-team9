@@ -7,7 +7,26 @@ package lambda;
 public class Request {
 
     String name;
+    private String bucketname;
+    private String filename;
+    
 
+    public String getBucketname() {
+        return bucketname;
+    }
+    
+    public String getFilename() {
+        return filename;
+    }
+    
+    public void setBucketname() {
+        this.bucketname = bucketname;
+    }
+    
+    public void setFilename() {
+        this.filename = filename;
+    }
+    
     public String getName() {
         return name;
     }
