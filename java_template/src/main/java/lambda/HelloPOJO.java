@@ -5,6 +5,20 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import saaf.Inspector;
 import saaf.Response;
 import java.util.HashMap;
+import java.io.Writer;
+import java.util.*;
+import java.io.*;  
+import java.nio.charset.StandardCharsets;
+import  com.amazonaws.services.s3.model.ObjectMetadata ;
+import  com.amazonaws.services.s3.AmazonS3ClientBuilder; 
+//import com.amazonaws.services.s3;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.GetObjectRequest;
+
 
 /**
  * uwt.lambda_test::handleRequest
